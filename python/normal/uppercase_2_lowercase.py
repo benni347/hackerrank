@@ -5,9 +5,9 @@ def swap_case(s):
     s = list(s)
     x = []
     for i in s[:]:
-        i = lo = "".join(map(str,i))
+        i = "".join(map(str, i))
 
-        i =str(i)
+        i = str(i)
         lo = i
         if lo.islower():
             upe = i.upper()
@@ -17,12 +17,12 @@ def swap_case(s):
             x += [lowe]
         else:
             x += [lo]
-    x ="".join(map(str,x))
-    # print(x)
+    x = "".join(map(str, x))
 
     return x
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     s = input()
     result = swap_case(s)
     print(result)
