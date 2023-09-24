@@ -1,4 +1,4 @@
-def print_rangoli(size):
+def print_rangoli(_):
     return
 
 
