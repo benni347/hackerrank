@@ -1,4 +1,3 @@
-
 def sum_mul(n, m):
     #  Find the sum of all multiples of n below m.
     x = n
@@ -10,6 +9,6 @@ def sum_mul(n, m):
             x += n
             y += x
             print(x)
-        # return x
+
 
 sum_mul(2, 9)
