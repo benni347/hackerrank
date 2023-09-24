@@ -21,6 +21,7 @@ This should create the same folder structure for each project
 """
 
 import os
+from urllib.parse import urlparse, urlunparse
 
 
 def create_test_structure_updated(dir_name, author, problem_url):
@@ -90,9 +91,16 @@ def create_test_structure_updated(dir_name, author, problem_url):
 dir_name = input("Please enter the name of the directory: ")
 author = "Cedric Skwar <cdrc@5y5.one>"
 problem_url = input("Please enter the problem URL: ")
+parsed_url = urlparse(problem_url)
+
+# Extract the components of the parsed URL
+scheme, netloc, path, params, _, _ = parsed_url
+
+# Reconstruct the URL without the query and fragment parts
+new_url = urlunparse((scheme, netloc, path, params, "", ""))
 
 # Call the function to create structure
-create_test_structure_updated(dir_name, author, problem_url)
+create_test_structure_updated(dir_name, author, new_url)
 
 # Output message
 print(f"Folder structure and files for {dir_name} have been created.")
