@@ -1,7 +1,7 @@
 def print_rangoli(size):
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
-    
+    return
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     n = int(input())
     print_rangoli(n)
