@@ -24,12 +24,16 @@ import os
 
 
 def create_test_structure_updated(dir_name, author, problem_url):
-    # Create the main directory
-    if not os.path.exists(dir_name):
-        os.mkdir(dir_name)
+    parent_dir = dir_name
+    sub_dir = dir_name
+    if not os.path.exists(parent_dir):
+        os.mkdir(parent_dir)
 
-    # Create the __init__.py file inside the directory
-    init_path = os.path.join(dir_name, "__init__.py")
+    full_sub_dir_path = os.path.join(parent_dir, sub_dir)
+    if not os.path.exists(full_sub_dir_path):
+        os.mkdir(full_sub_dir_path)
+
+    init_path = os.path.join(full_sub_dir_path, "__init__.py")
     with open(init_path, "w") as f:
         f.write("#!/usr/bin/env python3\n\n")
         f.write(
@@ -57,14 +61,14 @@ def create_test_structure_updated(dir_name, author, problem_url):
         f.write("TODO: Your problem description here.\n")
         f.write("\n")
         f.write(f":author: {author}\n")
-        f.write(f":license: GNU General Public License v3 or later (GPLv3+)\n")
+        f.write(":license: GNU General Public License v3 or later (GPLv3+)\n")
         f.write(f":problem_url: {problem_url}\n")
         f.write("'''\n")
         f.write("\n")
         f.write("# TODO: Your code here\n")
 
     # Create the test file
-    test_path = os.path.join(".", f"test_{dir_name}.py")
+    test_path = os.path.join(parent_dir, f"test_{dir_name}.py")
     with open(test_path, "w") as f:
         f.write("import unittest\n")
         f.write("from unittest.mock import patch\n")
