@@ -93,10 +93,11 @@ author = "Cedric Skwar <cdrc@5y5.one>"
 problem_url = input("Please enter the problem URL: ")
 parsed_url = urlparse(problem_url)
 
-# Check if the query string contains 'isFullScreen=true'
-if "isFullScreen=true" in parsed_url.query:
-    # Reconstruct the URL without the query string and fragment
-    new_url = urlunparse((parsed_url.scheme))
+# Extract the components of the parsed URL
+scheme, netloc, path, params, _, _ = parsed_url
+
+# Reconstruct the URL without the query and fragment parts
+new_url = urlunparse((scheme, netloc, path, params, "", ""))
 
 # Call the function to create structure
 create_test_structure_updated(dir_name, author, new_url)
